@@ -37,8 +37,8 @@ export async function setBalance(ss58Address: string, balance: bigint) {
         alice.sign,
     )
 
-    const inner_call = api.tx.Balances.force_set_balance({ who: { type: "Id", value: ss58Address }, new_free: balance });
-    const tx = api.tx.Sudo.sudo({ call: inner_call.decodedCall });
-    const hash = await tx.signAndSubmit(polkadotSigner);
-    console.log(`Transaction hash: ${hash}`);
+    // const inner_call = api.tx.Balances.force_set_balance({ who: { type: "Id", value: ss58Address }, new_free: balance });
+    // const tx = api.tx.Sudo.sudo({ call: inner_call.decodedCall });
+    // const hash = await tx.signAndSubmit(polkadotSigner);
+    // console.log(`Transaction hash: ${hash}`);
 }

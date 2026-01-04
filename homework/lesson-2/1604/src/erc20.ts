@@ -255,26 +255,26 @@ export async function createERC20Asset(api: TypedApi<typeof devnet | typeof hub>
     )
     const assetId = 1;
 
-    const tx = api.tx.Assets.create({
-        id: assetId,
-        admin: { type: "Id", value: ss58Address },
-        min_balance: BigInt(100),
-    })
+    // const tx = api.tx.Assets.create({
+    //     id: assetId,
+    //     admin: { type: "Id", value: ss58Address },
+    //     min_balance: BigInt(100),
+    // })
 
-    const hash = await tx.signAndSubmit(aliceSigner);
-    console.log("hash: ", hash.dispatchError?.value);
+    // const hash = await tx.signAndSubmit(aliceSigner);
+    // console.log("hash: ", hash.dispatchError?.value);
 
-    const metadata = await api.query.Assets.Asset.getValue(assetId);
-    console.log("metadata: ", metadata);
+    // const metadata = await api.query.Assets.Asset.getValue(assetId);
+    // console.log("metadata: ", metadata);
 
-    const mintTx = api.tx.Assets.mint({
-        id: assetId,
-        beneficiary: { type: "Id", value: ss58Address },
-        amount: BigInt(100000),
+    // const mintTx = api.tx.Assets.mint({
+    //     id: assetId,
+    //     beneficiary: { type: "Id", value: ss58Address },
+    //     amount: BigInt(100000),
 
-    })
-    const hash2 = await mintTx.signAndSubmit(aliceSigner);
-    console.log("hash: ", hash2);
+    // })
+    // const hash2 = await mintTx.signAndSubmit(aliceSigner);
+    // console.log("hash: ", hash2);
 
     const balance = await api.query.Assets.Account.getValue(assetId, ss58Address);
     console.log("Balance: ", balance);
